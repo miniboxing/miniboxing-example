@@ -1,5 +1,5 @@
 <img src="http://scala-miniboxing.org/mbox2-thumbnail.png" alt="Miniboxing Logo" align="right">
-#Miniboxing Example - Sbt Project
+#Miniboxing Example Project [![](https://travis-ci.org/miniboxing/miniboxing-example.png?branch=master)](https://travis-ci.org/miniboxing/miniboxing-example)#
 
 This is an example of using the miniboxing plugin with your sbt project. The changes to the normal build script are located in the
 [`miniboxingSettings`](https://github.com/miniboxing/miniboxing-example/blob/master/project/Build.scala#L21-34) 
