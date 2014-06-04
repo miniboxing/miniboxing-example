@@ -28,18 +28,35 @@ object Test {
 }
 
 $ sbt
-...
+[info] Loading project definition from /mnt/data1/Work/Workspace/dev/miniboxing-example/project
+[info] Set current project to miniboxing-example (in build file:/mnt/data1/Work/Workspace/dev/miniboxing-example/)
+
 > set scalacOptions += "-P:minibox:log"
-[info] Defining *:scalac-options
+[info] Defining *:scalacOptions
+[info] The new value will be used by compile:scalacOptions
 [info] Reapplying settings...
-[info] Set current project to miniboxing-example
+[info] Set current project to miniboxing-example (in build file:/mnt/data1/Work/Workspace/dev/miniboxing-example/)
 
 > compile
-...
+[info] Updating {file:/mnt/data1/Work/Workspace/dev/miniboxing-example/}miniboxing-example...
+[info] Resolving org.scala-miniboxing.plugins#miniboxing-runtime_2.11;0.3-SNAPSHOT ...
+[info] Resolving jline#jline;2.11 ...
+[info] Done updating.
+[info] Compiling 1 Scala source to /mnt/data1/Work/Workspace/dev/miniboxing-example/target/scala-2.11/classes...
+
+     _____   .__         .__ ____.                     .__ scala-miniboxing.org
+    /     \  |__|  ____  |__|\_  |__    _____  ___  ___|__|  ____    _____
+   /  \ /  \ |  | /    \ |  | |  __ \  /  ___\ \  \/  /|  | /    \  /  ___\
+  /    Y    \|  ||   |  \|  | |  \_\ \(  (_)  ) >    < |  ||   |  \(  /_/  )
+  \____|__  /|__||___|  /|__| |____  / \_____/ /__/\_ \|__||___|  / \___  /
+          \/          \/           \/                \/         \/ /_____/
+ Copyright (c) 2012-2014 Scala Team, École polytechnique fédérale de Lausanne
+ Developed and maintained by Vlad Ureche <vlad.ureche@epfl.ch>.
+
 Specializing class MyTuple2...
 
   // interface:
-  case abstract trait MyTuple2[T1, T2] extends Product with Serializable {
+  abstract trait MyTuple2[T1, T2] extends Product with Serializable {
     def canEqual(x$1: Any): Boolean                                       
     def copy$default$1[T1, T2](): T1 @scala.annotation.unchecked.uncheckedVariance
     def copy$default$2[T1, T2](): T2 @scala.annotation.unchecked.uncheckedVariance
@@ -52,62 +69,62 @@ Specializing class MyTuple2...
     override def productPrefix(): String                                  
     override def toString(): String                                       
     val t1(): T1                                                          
-    val t1_JJ(val T1_TypeTag: Byte,val T2_TypeTag: Byte): Long            
-    val t1_JL(val T1_TypeTag: Byte): Long                                 
+    val t1_JJ(val T1_TypeTag: Byte,val T2_TypeTag: Byte): T1 @storage[Long]
+    val t1_JL(val T1_TypeTag: Byte): T1 @storage[Long]                    
     val t1_LJ(val T2_TypeTag: Byte): T1                                   
     val t2(): T2                                                          
-    val t2_JJ(val T1_TypeTag: Byte,val T2_TypeTag: Byte): Long            
+    val t2_JJ(val T1_TypeTag: Byte,val T2_TypeTag: Byte): T2 @storage[Long]
     val t2_JL(val T1_TypeTag: Byte): T2                                   
-    val t2_LJ(val T2_TypeTag: Byte): Long                                 
+    val t2_LJ(val T2_TypeTag: Byte): T2 @storage[Long]                    
   }
 
   // specialized class:
   case class MyTuple2_JJ[T1sp, T2sp] extends Product with Serializable with MyTuple2[T1sp,T2sp] {
-    def <init>(val miniboxing$example$MyTuple2_JJ|T1_TypeTag: Byte,val miniboxing$example$MyTuple2_JJ|T2_TypeTag: Byte,t1: Long,t2: Long): miniboxing.example.MyTuple2_JJ[T1sp,T2sp] // is a specialized implementation of constructor MyTuple2
-    private[this] val miniboxing$example$MyTuple2_JJ|T1_TypeTag: Byte      // no info
-    private[this] val miniboxing$example$MyTuple2_JJ|T2_TypeTag: Byte      // no info
-    private[this] val t1: Long                                             // is a specialized implementation of value t1
-    private[this] val t2: Long                                             // is a specialized implementation of value t2
-    val t1(): T1sp                                                         // is a forwarder to value t1_JJ
-    val t1_JJ(val T1_TypeTag: Byte,val T2_TypeTag: Byte): Long             // is a setter or getter for value t1
-    val t1_JL(val T1_TypeTag: Byte): Long                                  // is a forwarder to value t1_JJ
-    val t1_LJ(val T2_TypeTag: Byte): T1sp                                  // is a forwarder to value t1_JJ
-    val t2(): T2sp                                                         // is a forwarder to value t2_JJ
-    val t2_JJ(val T1_TypeTag: Byte,val T2_TypeTag: Byte): Long             // is a setter or getter for value t2
-    val t2_JL(val T1_TypeTag: Byte): T2sp                                  // is a forwarder to value t2_JJ
-    val t2_LJ(val T2_TypeTag: Byte): Long                                  // is a forwarder to value t2_JJ
+    def <init>(val miniboxing|example|MyTuple2_JJ|T1_TypeTag: Byte,val miniboxing|example|MyTuple2_JJ|T2_TypeTag: Byte,t1: T1sp @storage[Long],t2: T2sp @storage[Long]): miniboxing.example.MyTuple2_JJ[T1sp,T2sp] // is a specialized implementation of constructor MyTuple2
+    private[this] val miniboxing|example|MyTuple2_JJ|T1_TypeTag: Byte      // no info
+    private[this] val miniboxing|example|MyTuple2_JJ|T2_TypeTag: Byte      // no info
+    private[this] val t1: T1sp @storage[Long]                              // is a specialized implementation of value t1
+    private[this] val t2: T2sp @storage[Long]                              // is a specialized implementation of value t2
+    val t1(): T1sp                                                         // is a forwarder to the specialized member
+    val t1_JJ(val T1_TypeTag: Byte,val T2_TypeTag: Byte): T1sp @storage[Long] // is a setter or getter for value t1
+    val t1_JL(val T1_TypeTag: Byte): T1sp @storage[Long]                   // is a forwarder to the specialized member
+    val t1_LJ(val T2_TypeTag: Byte): T1sp                                  // is a forwarder to the specialized member
+    val t2(): T2sp                                                         // is a forwarder to the specialized member
+    val t2_JJ(val T1_TypeTag: Byte,val T2_TypeTag: Byte): T2sp @storage[Long] // is a setter or getter for value t2
+    val t2_JL(val T1_TypeTag: Byte): T2sp                                  // is a forwarder to the specialized member
+    val t2_LJ(val T2_TypeTag: Byte): T2sp @storage[Long]                   // is a forwarder to the specialized member
   }
 
   // specialized class:
   case class MyTuple2_LJ[T1sp, T2sp] extends Product with Serializable with MyTuple2[T1sp,T2sp] {
-    def <init>(val miniboxing$example$MyTuple2_LJ|T2_TypeTag: Byte,t1: T1sp,t2: Long): miniboxing.example.MyTuple2_LJ[T1sp,T2sp] // is a specialized implementation of constructor MyTuple2
-    private[this] val miniboxing$example$MyTuple2_LJ|T2_TypeTag: Byte      // no info
+    def <init>(val miniboxing|example|MyTuple2_LJ|T2_TypeTag: Byte,t1: T1sp,t2: T2sp @storage[Long]): miniboxing.example.MyTuple2_LJ[T1sp,T2sp] // is a specialized implementation of constructor MyTuple2
+    private[this] val miniboxing|example|MyTuple2_LJ|T2_TypeTag: Byte      // no info
     private[this] val t1: T1sp                                             // is a specialized implementation of value t1
-    private[this] val t2: Long                                             // is a specialized implementation of value t2
-    val t1(): T1sp                                                         // is a forwarder to value t1_LJ
-    val t1_JJ(val T1_TypeTag: Byte,val T2_TypeTag: Byte): Long             // is a forwarder to value t1_LJ
-    val t1_JL(val T1_TypeTag: Byte): Long                                  // is a forwarder to value t1_LJ
+    private[this] val t2: T2sp @storage[Long]                              // is a specialized implementation of value t2
+    val t1(): T1sp                                                         // is a forwarder to the specialized member
+    val t1_JJ(val T1_TypeTag: Byte,val T2_TypeTag: Byte): T1sp @storage[Long] // is a forwarder to the specialized member
+    val t1_JL(val T1_TypeTag: Byte): T1sp @storage[Long]                   // is a forwarder to the specialized member
     val t1_LJ(val T2_TypeTag: Byte): T1sp                                  // is a setter or getter for value t1
-    val t2(): T2sp                                                         // is a forwarder to value t2_LJ
-    val t2_JJ(val T1_TypeTag: Byte,val T2_TypeTag: Byte): Long             // is a forwarder to value t2_LJ
-    val t2_JL(val T1_TypeTag: Byte): T2sp                                  // is a forwarder to value t2_LJ
-    val t2_LJ(val T2_TypeTag: Byte): Long                                  // is a setter or getter for value t2
+    val t2(): T2sp                                                         // is a forwarder to the specialized member
+    val t2_JJ(val T1_TypeTag: Byte,val T2_TypeTag: Byte): T2sp @storage[Long] // is a forwarder to the specialized member
+    val t2_JL(val T1_TypeTag: Byte): T2sp                                  // is a forwarder to the specialized member
+    val t2_LJ(val T2_TypeTag: Byte): T2sp @storage[Long]                   // is a setter or getter for value t2
   }
 
   // specialized class:
   case class MyTuple2_JL[T1sp, T2sp] extends Product with Serializable with MyTuple2[T1sp,T2sp] {
-    def <init>(val miniboxing$example$MyTuple2_JL|T1_TypeTag: Byte,t1: Long,t2: T2sp): miniboxing.example.MyTuple2_JL[T1sp,T2sp] // is a specialized implementation of constructor MyTuple2
-    private[this] val miniboxing$example$MyTuple2_JL|T1_TypeTag: Byte      // no info
-    private[this] val t1: Long                                             // is a specialized implementation of value t1
+    def <init>(val miniboxing|example|MyTuple2_JL|T1_TypeTag: Byte,t1: T1sp @storage[Long],t2: T2sp): miniboxing.example.MyTuple2_JL[T1sp,T2sp] // is a specialized implementation of constructor MyTuple2
+    private[this] val miniboxing|example|MyTuple2_JL|T1_TypeTag: Byte      // no info
+    private[this] val t1: T1sp @storage[Long]                              // is a specialized implementation of value t1
     private[this] val t2: T2sp                                             // is a specialized implementation of value t2
-    val t1(): T1sp                                                         // is a forwarder to value t1_JL
-    val t1_JJ(val T1_TypeTag: Byte,val T2_TypeTag: Byte): Long             // is a forwarder to value t1_JL
-    val t1_JL(val T1_TypeTag: Byte): Long                                  // is a setter or getter for value t1
-    val t1_LJ(val T2_TypeTag: Byte): T1sp                                  // is a forwarder to value t1_JL
-    val t2(): T2sp                                                         // is a forwarder to value t2_JL
-    val t2_JJ(val T1_TypeTag: Byte,val T2_TypeTag: Byte): Long             // is a forwarder to value t2_JL
+    val t1(): T1sp                                                         // is a forwarder to the specialized member
+    val t1_JJ(val T1_TypeTag: Byte,val T2_TypeTag: Byte): T1sp @storage[Long] // is a forwarder to the specialized member
+    val t1_JL(val T1_TypeTag: Byte): T1sp @storage[Long]                   // is a setter or getter for value t1
+    val t1_LJ(val T2_TypeTag: Byte): T1sp                                  // is a forwarder to the specialized member
+    val t2(): T2sp                                                         // is a forwarder to the specialized member
+    val t2_JJ(val T1_TypeTag: Byte,val T2_TypeTag: Byte): T2sp @storage[Long] // is a forwarder to the specialized member
     val t2_JL(val T1_TypeTag: Byte): T2sp                                  // is a setter or getter for value t2
-    val t2_LJ(val T2_TypeTag: Byte): Long                                  // is a forwarder to value t2_JL
+    val t2_LJ(val T2_TypeTag: Byte): T2sp @storage[Long]                   // is a forwarder to the specialized member
   }
 
   // specialized class:
@@ -116,26 +133,26 @@ Specializing class MyTuple2...
     private[this] val t1: T1sp                                             // is a specialized implementation of value t1
     private[this] val t2: T2sp                                             // is a specialized implementation of value t2
     val t1(): T1sp                                                         // is a setter or getter for value t1
-    val t1_JJ(val T1_TypeTag: Byte,val T2_TypeTag: Byte): Long             // is a forwarder to value t1
-    val t1_JL(val T1_TypeTag: Byte): Long                                  // is a forwarder to value t1
-    val t1_LJ(val T2_TypeTag: Byte): T1sp                                  // is a forwarder to value t1
+    val t1_JJ(val T1_TypeTag: Byte,val T2_TypeTag: Byte): T1sp @storage[Long] // is a forwarder to the specialized member
+    val t1_JL(val T1_TypeTag: Byte): T1sp @storage[Long]                   // is a forwarder to the specialized member
+    val t1_LJ(val T2_TypeTag: Byte): T1sp                                  // is a forwarder to the specialized member
     val t2(): T2sp                                                         // is a setter or getter for value t2
-    val t2_JJ(val T1_TypeTag: Byte,val T2_TypeTag: Byte): Long             // is a forwarder to value t2
-    val t2_JL(val T1_TypeTag: Byte): T2sp                                  // is a forwarder to value t2
-    val t2_LJ(val T2_TypeTag: Byte): Long                                  // is a forwarder to value t2
+    val t2_JJ(val T1_TypeTag: Byte,val T2_TypeTag: Byte): T2sp @storage[Long] // is a forwarder to the specialized member
+    val t2_JL(val T1_TypeTag: Byte): T2sp                                  // is a forwarder to the specialized member
+    val t2_LJ(val T2_TypeTag: Byte): T2sp @storage[Long]                   // is a forwarder to the specialized member
   }
 
 
+[success] Total time: 11 s, completed Jun 4, 2014 2:28:10 AM
 
-
-[success] Total time: 8 s, completed Aug 21, 2013 3:59:15 AM
 > run
 [info] Running miniboxing.example.Test 
 MyTuple of [Double, Double] dot getClass(): class miniboxing.example.MyTuple2_JJ
 MyTuple of [Double, String] dot getClass(): class miniboxing.example.MyTuple2_JL
 MyTuple of [String, Double] dot getClass(): class miniboxing.example.MyTuple2_LJ
 MyTuple of [String, String] dot getClass(): class miniboxing.example.MyTuple2_LL
-[success] Total time: 0 s, completed Aug 21, 2013 3:59:16 AM
+[success] Total time: 0 s, completed Jun 4, 2014 2:28:10 AM
+
 > 
 ```
 
