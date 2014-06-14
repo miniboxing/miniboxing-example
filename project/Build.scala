@@ -27,6 +27,8 @@ object MyBuild extends Build {
       //                       // (which explains what the plugin is doing)
       //"-P:minibox:hijack" :: // enable hijacking the @specialized annotations
       //                       // transforming them into @miniboxed annotations
+      //"-P:minibox:two-way" ::// translate to {generic, Long, Double} instead of
+      //                       // just {generic, Long} - further increases performance
       "-optimize" ::         // necessary to get the best performance when
                              // using the miniboxing plugin
       Nil
