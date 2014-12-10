@@ -44,15 +44,6 @@ $ sbt
 [info] Done updating.
 [info] Compiling 1 Scala source to /mnt/data1/Work/Workspace/dev/miniboxing-example/target/scala-2.11/classes...
 
-     _____   .__         .__ ____.                     .__ scala-miniboxing.org
-    /     \  |__|  ____  |__|\_  |__    _____  ___  ___|__|  ____    _____
-   /  \ /  \ |  | /    \ |  | |  __ \  /  ___\ \  \/  /|  | /    \  /  ___\
-  /    Y    \|  ||   |  \|  | |  \_\ \(  (_)  ) >    < |  ||   |  \(  /_/  )
-  \____|__  /|__||___|  /|__| |____  / \_____/ /__/\_ \|__||___|  / \___  /
-          \/          \/           \/                \/         \/ /_____/
- Copyright (c) 2012-2014 Scala Team, École polytechnique fédérale de Lausanne
- Developed and maintained by Vlad Ureche <vlad.ureche@epfl.ch>.
-
 Specializing class MyTuple2...
 
   // interface:

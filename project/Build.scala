@@ -27,9 +27,6 @@ object MyBuild extends Build {
       //                       // (which explains what the plugin is doing)
       //"-P:minibox:hijack" :: // enable hijacking the @specialized annotations
       //                       // transforming them into @miniboxed annotations
-      "-optimize" ::         // necessary to get the best performance when
-                             // using the miniboxing plugin
-      "-P:minibox:warn" ::
       Nil
     )
   )
