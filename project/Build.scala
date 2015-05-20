@@ -13,15 +13,16 @@ object MyBuild extends Build {
       // The plugin requires the latest version of the scalac compiler. You
       // can use older compilers, but before reporting a bug, please check
       // that it can be reproduced with the latest version of the compiler.
-      scalaVersion := "2.11.4"
+      scalaVersion := "2.11.6"
     ) ++ miniboxingSettings
   )
 
   /** Settings for the miniboxing plugin */
   lazy val miniboxingSettings = Seq[Setting[_]](
     resolvers += Resolver.sonatypeRepo("snapshots"),
-    libraryDependencies += "org.scala-miniboxing.plugins" %% "miniboxing-runtime" % "0.4-SNAPSHOT",
-    addCompilerPlugin("org.scala-miniboxing.plugins" %% "miniboxing-plugin" % "0.4-SNAPSHOT"),
+    resolvers += Resolver.sonatypeRepo("releases"),
+    libraryDependencies += "org.scala-miniboxing.plugins" %% "miniboxing-runtime" % "0.4-M3",
+    addCompilerPlugin("org.scala-miniboxing.plugins" %% "miniboxing-plugin" % "0.4-M3"),
     scalacOptions ++= (
       //"-P:minibox:log" ::    // enable the miniboxing plugin output
       //                       // (which explains what the plugin is doing)
